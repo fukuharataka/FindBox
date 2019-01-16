@@ -27,9 +27,21 @@ class LiveHousesController < ApplicationController
   end
 
   def update_basic
+    if @live_house.update(basic_params)
+      flash[:success] = "ライブハウスの基本情報を更新しました"
+      redirect_to root_url
+    else
+      render 'edit_basic'
+    end
   end
 
   def update_detail
+    if @live_house.update(detail_params)
+      flash[:success] = "ライブハウスの詳細情報を更新しました"
+      redirect_to root_url
+    else
+      render 'edit_basic'
+    end
   end
 
   def destroy
@@ -37,7 +49,7 @@ class LiveHousesController < ApplicationController
 
 private
   def set_live_house
-    @live_house = Live_house.find(params[:id])
+    @live_house = LiveHouse.find(params[:id])
   end
 
   def detail_params

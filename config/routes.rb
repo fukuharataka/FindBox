@@ -7,12 +7,11 @@ Rails.application.routes.draw do
   post      'sign_up',            to: 'users#create'
   delete    'sign_out',           to: 'users#session_destroy',      as: 'sign_out'
 
-  resources :live_houses, only:[:index, :show, :new, :create, :destroy] do
-    get     'edit_basic',     to: 'live_houses#edit_basic',     as: 'edit_basic'
-    patch   'update_basic',   to: 'live_houses#update_basic',   as: 'update_basic'
-    put     'update_basic',   to: 'live_houses#update_basic'
-    get     'edit_detail',    to: 'live_houses#edit_detail',    as: 'edit_detail'
-    patch   'update_detail',  to: 'live_houses#update_detail',  as: 'update_detail'
-    put     'update_detail',  to: 'live_houses#update_detail'
-  end
+  resources :live_houses, only:[:index, :show, :new, :create, :destroy]
+    get     '/:id/edit_basic',     to: 'live_houses#edit_basic',     as: 'edit_basic'
+    patch   '/:id/update_basic',   to: 'live_houses#update_basic',   as: 'update_basic'
+    put     '/:id/update_basic',   to: 'live_houses#update_basic'
+    get     '/:id/edit_detail',    to: 'live_houses#edit_detail',    as: 'edit_detail'
+    patch   '/:id/update_detail',  to: 'live_houses#update_detail',  as: 'update_detail'
+    put     '/:id/update_detail',  to: 'live_houses#update_detail'
 end
