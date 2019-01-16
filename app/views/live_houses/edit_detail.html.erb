@@ -1,0 +1,6 @@
+<%= form_for(@live_house, url: update_detail_path(@live_house)) do |f| %>
+  <h2>詳細情報の編集</h2>
+  <%= f.text_area :detail %>
+
+  <%= f.submit "登録する"%>
+<% end %>
