@@ -1,8 +1,17 @@
 class LiveHousesController < ApplicationController
+  before_action :set_live_house, only:[:show, :edit_basic, :edit_detail, :update_basic, :update_detail, :destroy]
   def new
+    @live_house = LiveHouse.new
   end
 
   def create
+    @live_house = LiveHouse.new(basic_params)
+    if @live_house.save
+      flash[:success] = "ライブハウスを新規に登録しました"
+      redirect_to root_url
+    else
+      render 'new'
+    end
   end
 
   def index

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   post      'sign_up',            to: 'users#create'
   delete    'sign_out',           to: 'users#session_destroy',      as: 'sign_out'
 
-  resources :live_houses, only:[:index, :show, :new, :destroy] do
+  resources :live_houses, only:[:index, :show, :new, :create, :destroy] do
     get     'edit_basic',     to: 'live_houses#edit_basic',     as: 'edit_basic'
     patch   'update_basic',   to: 'live_houses#update_basic',   as: 'update_basic'
     put     'update_basic',   to: 'live_houses#update_basic'

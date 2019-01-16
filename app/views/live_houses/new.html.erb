@@ -1,20 +1,20 @@
-<%= form_for(@live_house, url: sign_up_path(@user)) do |f| %>
-  <h2>name</h2>
+<%= form_for(@live_house, url: live_houses_path(@user)) do |f| %>
+  <h2>ライブハウス名</h2>
   <%= f.text_field :name %>
 
-  <h2>email</h2>
-  <%= f.text_field :hp_url %>
+  <h2>収容人数</h2>
+  <%= f.number_field :capacity %>
 
-  <h2>email</h2>
-  <%= f.text_field :capacity %>
-
-  <h2>email</h2>
+  <h2>都道府県</h2>
   <%= f.text_field :prefecture %>
 
-  <h2>email</h2>
+  <h2>その他住所</h2>
   <%= f.text_field :address %>
 
-  <h2>nickname</h2>
+  <h2>ホームページurl</h2>
+  <%= f.text_field :hp_url %>
+
+  <h2>電話番号</h2>
   <%= f.text_field :phone_number %>
 
   <%= f.submit "登録する"%>
