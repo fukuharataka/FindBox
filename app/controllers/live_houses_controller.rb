@@ -1,5 +1,6 @@
 class LiveHousesController < ApplicationController
   before_action :set_live_house, only:[:show, :edit_basic, :edit_detail, :update_basic, :update_detail, :destroy]
+  before_action :set_paper_trail_whodunnit, only:[:create, :update_basic, :update_detail, :destroy]
   def new
     @live_house = LiveHouse.new
   end
@@ -18,6 +19,7 @@ class LiveHousesController < ApplicationController
   end
 
   def show
+    @detail_ver = @live_house.versions
   end
 
   def edit_basic
