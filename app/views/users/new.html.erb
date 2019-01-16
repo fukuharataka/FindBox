@@ -1,0 +1,20 @@
+<%= form_for(@user, url: sign_up_path(@user)) do |f| %>
+  <h2>name</h2>
+  <%= f.text_field :name %>
+
+  <h2>email</h2>
+  <%= f.text_field :email %>
+
+  <h2>password</h2>
+  <%= f.password_field :password %>
+
+  <h2>password_confirmation</h2>
+  <%= f.password_field :password_confirmation %>
+
+  <h2>nickname</h2>
+  <%= f.text_field :nickname %>
+
+  <%= f.submit "登録する"%>
+<% end %>
+
+<% link_to root_url %>

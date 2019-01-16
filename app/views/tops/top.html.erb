@@ -1,8 +1,24 @@
-<div class="scroll-area">
+<!-- <div class="scroll-area">
   <div class="box box_photo">
     <div class="top_text">
       <h1>Find BOX</h1>
       <p>ライブハウス情報共有サイト</p>
     </div>
   </div>
-</div>
+</div> -->
+
+<% if flash[:success] %>
+	<p><%= flash[:success] %></p>
+<% end %>
+<% if current_user %>
+	<p><%= current_user.name %></p>
+	<h1>退会</h1>
+	<%= link_to "退会する",user_path(current_user),method: :delete %>
+
+	<h1>ログアウト</h1>
+	<%= link_to "ログアウト",sign_out_path,method: :delete %>
+
+<%end %>
+
+<%= link_to "新規登録",sign_up_path %>
+<%= link_to "ログイン",sign_in_path %>
