@@ -1,0 +1,2 @@
+class LiveHouse < ApplicationRecord
+end

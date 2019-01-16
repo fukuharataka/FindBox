@@ -1,0 +1,2 @@
+class LiveHousesController < ApplicationController
+end

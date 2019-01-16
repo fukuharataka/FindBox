@@ -1,0 +1,21 @@
+<%= form_for(@live_house, url: sign_up_path(@user)) do |f| %>
+  <h2>name</h2>
+  <%= f.text_field :name %>
+
+  <h2>email</h2>
+  <%= f.text_field :hp_url %>
+
+  <h2>email</h2>
+  <%= f.text_field :capacity %>
+
+  <h2>email</h2>
+  <%= f.text_field :prefecture %>
+
+  <h2>email</h2>
+  <%= f.text_field :address %>
+
+  <h2>nickname</h2>
+  <%= f.text_field :phone_number %>
+
+  <%= f.submit "登録する"%>
+<% end %>

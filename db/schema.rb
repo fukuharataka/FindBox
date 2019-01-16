@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_16_044018) do
+ActiveRecord::Schema.define(version: 2019_01_16_075531) do
+
+  create_table "live_houses", force: :cascade do |t|
+    t.string "name"
+    t.string "prefecture"
+    t.string "address"
+    t.string "phone_number"
+    t.text "hp_url"
+    t.text "detail"
+    t.text "image_id"
+    t.integer "capacity"
+    t.boolean "enable", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
