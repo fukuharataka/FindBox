@@ -1,0 +1,10 @@
+<% @detail_ver.each do |version| %>
+  <% unless version.whodunnit.nil? %>
+    <p><%= User.find(version.whodunnit).name %></p>
+  <% end %>
+
+  <% if version.reify != nil %>
+    <%= version.reify.detail %>
+  <% end %>
+<% end %>
+<% link_to root_url %>

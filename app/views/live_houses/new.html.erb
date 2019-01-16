@@ -1,0 +1,12 @@
+<%= form_for(@live_house, url: live_houses_path(@user)) do |f| %>
+  <h2>ライブハウス名</h2>
+  <%= f.text_field :name %>
+
+  <h2>収容人数</h2>
+  <%= f.number_field :capacity %>
+
+  <h2>都道府県</h2>
+  <%= f.text_field :prefecture %>
+
+  <%= f.submit "登録する"%>
+<% end %>
