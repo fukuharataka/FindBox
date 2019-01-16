@@ -10,16 +10,37 @@ class UsersController < ApplicationController
   def edit
   end
 
-  def sign_in
+  def session_new
   end
 
   def session_create
+    binding.pry
+    user = User.find_by(email: params[:session][:email].downcase)
+    if user && user.authenticate(params[:session][:password])
+      if user.enable == true
+        sign_in user
+        flash.now[:success] = "ログインしました"
+        redirect_to root_url
+      else
+        flash.now[:danger] = "すでに退会済みユーザーです"
+        render 'User_new'
+      end
+    else
+      flash.now[:danger] = "入力内容の確認をお願いします"
+      render 'User_new'
+    end
+  end
+
+  def session_destroy
+    sign_out
+    flash[:success] = "ログアウトしました"
+    redirect_to root_url
   end
 
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
+      sign_in @user
       flash[:success] = "新規登録をしました"
       redirect_to root_url
     else
@@ -31,6 +52,12 @@ class UsersController < ApplicationController
   end
 
   def destroy
+    user = User.find(params[:id])
+    user.enable = false
+    user.save
+    sign_out
+    flash[:success] = "退会しました"
+    redirect_to root_path
   end
 
 private
