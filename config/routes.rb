@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   get     '/:id/edit_detail',    to: 'live_houses#edit_detail',    as: 'edit_detail'
   patch   '/:id/update_detail',  to: 'live_houses#update_detail',  as: 'update_detail'
   put     '/:id/update_detail',  to: 'live_houses#update_detail'
+
+  post    'live_houses/:id/report',         to: 'reports#create',             as: 'reports'
+  delete  'report/:id',          to: 'reports#destroy',            as: 'report_destroy'
 end
