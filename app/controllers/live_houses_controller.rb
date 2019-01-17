@@ -1,4 +1,5 @@
 class LiveHousesController < ApplicationController
+  before_action :authenticate_user!, only:[:new, :edit_basic, :edit_detail]
   before_action :set_live_house, only:[:show, :edit_basic, :edit_detail, :update_basic, :update_detail, :destroy]
   before_action :set_paper_trail_whodunnit, only:[:create, :update_basic, :update_detail, :destroy]
   def new
@@ -9,7 +10,7 @@ class LiveHousesController < ApplicationController
     @live_house = LiveHouse.new(basic_params)
     if @live_house.save
       flash[:success] = "ライブハウスを新規に登録しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'new'
     end
@@ -31,7 +32,7 @@ class LiveHousesController < ApplicationController
   def update_basic
     if @live_house.update(basic_params)
       flash[:success] = "ライブハウスの基本情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end
@@ -40,7 +41,7 @@ class LiveHousesController < ApplicationController
   def update_detail
     if @live_house.update(detail_params)
       flash[:success] = "ライブハウスの詳細情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end
