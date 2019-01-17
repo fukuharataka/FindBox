@@ -10,7 +10,7 @@ class LiveHousesController < ApplicationController
     @live_house = LiveHouse.new(basic_params)
     if @live_house.save
       flash[:success] = "ライブハウスを新規に登録しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'new'
     end
@@ -32,7 +32,7 @@ class LiveHousesController < ApplicationController
   def update_basic
     if @live_house.update(basic_params)
       flash[:success] = "ライブハウスの基本情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end
@@ -41,7 +41,7 @@ class LiveHousesController < ApplicationController
   def update_detail
     if @live_house.update(detail_params)
       flash[:success] = "ライブハウスの詳細情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end
