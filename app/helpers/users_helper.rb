@@ -21,4 +21,14 @@ module UsersHelper
 		end
 	end
 
+  def authenticate_admin!
+    unless current_user.nil?
+      user = User.find(current_user)
+      if user.admin == false
+        flash[:danger] = "ページが存在しません"
+        redirect_to root_url
+      end
+    end
+  end
+
 end

@@ -1,4 +1,5 @@
 class LiveHousesController < ApplicationController
+  before_action :authenticate_user!, only:[:new, :edit_basic, :edit_detail]
   before_action :set_live_house, only:[:show, :edit_basic, :edit_detail, :update_basic, :update_detail, :destroy]
   before_action :set_paper_trail_whodunnit, only:[:create, :update_basic, :update_detail, :destroy]
   def new
