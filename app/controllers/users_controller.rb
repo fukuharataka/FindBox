@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, except:[:new, :session_create]
+  before_action :authenticate_user!, only:[:edit, :show]
   def new
     @user = User.new
   end
@@ -14,7 +14,6 @@ class UsersController < ApplicationController
   end
 
   def session_create
-    binding.pry
     user = User.find_by(email: params[:session][:email].downcase)
     if user && user.authenticate(params[:session][:password])
       if user.enable == true
@@ -23,11 +22,11 @@ class UsersController < ApplicationController
         redirect_to root_url
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
-        render 'User_new'
+        render 'new'
       end
     else
       flash.now[:danger] = "入力内容の確認をお願いします"
-      render 'User_new'
+      render 'session_new'
     end
   end
 
