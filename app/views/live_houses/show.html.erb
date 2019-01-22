@@ -15,3 +15,6 @@
 <% else %>
   <%= link_to "通報", reports_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
 <% end %>
+
+
+<%= sanitize @live_house.detail %>
