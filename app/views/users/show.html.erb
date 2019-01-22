@@ -1,1 +1,29 @@
-<h1>show</h1>
+<div class="full_screen_container b">
+  <%= render 'layouts/header' %>
+  <div class="sign_box center b">
+    <div class="clearfix">
+      <label for='name' class='form-title'>ユーザー情報</label>
+    </div>
+    <div class="form-box clearfix">
+      <label for='name' class="show_text_box">氏名</label>
+      <span class="form form-input">氏名</span>
+    </div>
+    <div class="form-box clearfix">
+      <label for='name' class="show_text_box">アカウント名</label>
+      <span class="form form-input">アカウント名</span>
+    </div>
+    <div class="form-box clearfix">
+      <label for='name' class="show_text_box">メールアドレス</label>
+      <span class="form form-input">メールアドレス</span>
+    </div>
+    <div class="form-box clearfix">
+      <label for='name' class="show_text_box">ホームグラウンド</label>
+      <span class="form form-input">ホームグラウンド</span>
+    </div>
+    <div class="form-box clearfix">
+      <button class="btn block" type="submit" name="button">編集</button>
+      <button class="btn block" type="submit" name="button">退会</button>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

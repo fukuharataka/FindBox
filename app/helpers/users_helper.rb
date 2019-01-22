@@ -13,4 +13,11 @@ module UsersHelper
       @current_user ||= User.find_by(id: session[:user_id])
     end
   end
+
+  def authenticate_user!
+    if current_user.nil?
+      flash[:denger] = "ログインしてください"
+      redirect_to sign_in_path
+    end
+  end
 end

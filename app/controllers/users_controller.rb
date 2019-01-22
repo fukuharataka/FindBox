@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
+  before_action :authenticate_user!, only:[:show, :edit]
   def new
     @user = User.new
   end
 
   def show
-
+    @user = find(current_user.id)
   end
 
   def edit
+    @user = User.find(current_user.id)
   end
 
   def session_new
@@ -49,6 +51,13 @@ class UsersController < ApplicationController
   end
 
   def update
+    @user = User.find(current_user.id)
+    if @profile.update(user_params)
+      flash[:success] = "ユーザー情報を編集しました"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
 
   def destroy

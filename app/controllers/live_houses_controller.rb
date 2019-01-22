@@ -1,5 +1,5 @@
 class LiveHousesController < ApplicationController
-  before_action :set_live_house, only:[:show, :edit_basic, :edit_detail, :update_basic, :update_detail, :destroy]
+  before_action :authenticate_user!, only:[:new, :edit_basic, :edit_detail]
   before_action :set_paper_trail_whodunnit, only:[:create, :update_basic, :update_detail, :destroy]
   def new
     @live_house = LiveHouse.new
@@ -19,16 +19,20 @@ class LiveHousesController < ApplicationController
   end
 
   def show
+    @live_house = LiveHouse.find(params[:id])
     @detail_ver = @live_house.versions
   end
 
   def edit_basic
+    @live_house = LiveHouse.find(params[:id])
   end
 
   def edit_detail
+    @live_house = LiveHouse.find(params[:id])
   end
 
   def update_basic
+    @live_house = LiveHouse.find(params[:id])
     if @live_house.update(basic_params)
       flash[:success] = "ライブハウスの基本情報を更新しました"
       redirect_to root_url
@@ -38,6 +42,7 @@ class LiveHousesController < ApplicationController
   end
 
   def update_detail
+    @live_house = LiveHouse.find(params[:id])
     if @live_house.update(detail_params)
       flash[:success] = "ライブハウスの詳細情報を更新しました"
       redirect_to root_url
@@ -47,13 +52,18 @@ class LiveHousesController < ApplicationController
   end
 
   def destroy
+    live_house = LiveHouse.find(params[:id])
+    live_house.enable = false
+    if LiveHouse.save
+      flash[:success] = "ライブハウスを削除しました"
+      redirect_to reports_index_path
+    else
+      flash[:success] = "ライブハウスを削除できませんでした"
+      redirect_to reports_index_path
+    end
   end
 
 private
-  def set_live_house
-    @live_house = LiveHouse.find(params[:id])
-  end
-
   def detail_params
     params.require(:live_house).permit(:detail)
   end
