@@ -1,3 +1,78 @@
 // Place all the styles related to the live_houses controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.house_index_box {
+  width: 100%;
+  display: inline-block;
+}
+
+.side_bar_container {
+  display: inline-block;
+  width: 20%;
+  height: 600px;
+  margin:0 0 0 5%;
+}
+
+.index_container {
+  display: inline-block;
+  width: 74%;
+  vertical-align: top;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.index_container title {
+  display: block;
+  text-align: center;
+  width: 100%;
+  font-size: 50px;
+}
+
+.live_house_index {
+  text-align: center;
+  display: inline-block;
+  margin: 0 auto 0;
+}
+
+.live_house {
+  display: inline-block;
+  margin: 25px;
+}
+
+.live_house .image {
+  width: 250px;
+  height: 200px;
+}
+
+.edit_container {
+  display: inline-block;
+  width: 100%;
+  text-align: center;
+  height: 85vh;
+}
+
+.edit_box {
+  display: inline-block;
+  margin-top: 5vh;
+}
+
+.edit_box {
+  .image_box {
+    display: inline-block;
+    width:300px;
+  }
+}
+
+.edit_box {
+  .edit_aria {
+    width:600px;
+    display: inline-block;
+  }
+}
+
+.edit_box {
+  .form-input {
+    display: inline-block;
+    margin-right: 20%;
+  }
+}

@@ -1,0 +1,29 @@
+<div class="house_index_box b">
+<%= render 'layouts/header' %>
+
+  <div class="side_bar_container b">
+  </div>
+
+  <div class="index_container b">
+    <title>live_house_index</title>
+
+    <% 15.times do %>
+      <div class="live_house_index">
+        <div class="b live_house">
+          <div class="image b">
+            <%= image_tag "no_image.png", size: '200x200' %>
+          </div>
+          <p>ライブハウスTaka</p>
+          <p>収容人数<span>100</span>人</p>
+          <p>所在地<span>東京都</span></p>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="page b">
+      <p>ページやで</p>
+    </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</div>

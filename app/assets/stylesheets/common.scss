@@ -1,6 +1,6 @@
 @import 'color';
 
-html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td {
+html, body, header, footer, input,label, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table, tr, th, td {
   margin: 0;
   padding: 0;
   border: 0;
@@ -12,14 +12,6 @@ html, body, h1, h2, h3, h4, ul, ol, dl, li, dt, dd, p, div, span, img, a, table,
   box-sizing: border-box;
 }
 
-article, header, footer, aside, figure, figcaption, nav, section {
-  display:block;
-}
-
-html {
-  font-size: 62.5%; //16px*0.625=10px
-}
-
 body {
   font-size: 1.4rem;
   line-height: 1;
@@ -29,4 +21,51 @@ body {
   //英字折返し
   word-wrap: break-word;
   overflow-wrap: break-word;
+}
+
+footer {
+  width: 100%;
+  display: inline-block;
+  height: 5vh;
+  text-align: center;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+  height: 10vh;
+}
+
+
+.full_screen_container {
+  width: 100%;
+  height: 100vh;
+}
+
+.clearfix:after{
+	content: "";
+	clear: both;
+	display: block;
+}
+
+
+.block {
+  display: block;
+  padding-top: 1px;
+}
+
+.inline {
+  display: inline;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.center {
+  text-align: center;
+}
+
+.mt_250 {
+  margin-top: 250px;
 }
