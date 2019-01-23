@@ -9,7 +9,7 @@ class LiveHousesController < ApplicationController
     @live_house = LiveHouse.new(basic_params)
     if @live_house.save
       flash[:success] = "ライブハウスを新規に登録しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'new'
     end

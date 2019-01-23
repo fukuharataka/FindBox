@@ -1,4 +1,5 @@
 class ReportsController < ApplicationController
+  before_action :authenticate_admin!, only:[:index, :show]
   def create
     report = Report.new
     report.user_id = current_user.id
@@ -17,6 +18,12 @@ class ReportsController < ApplicationController
     report.destroy
     flash[:success] = "通報を取り消しました"
     redirect_to root_url
+  end
+
+  def index
+  end
+
+  def show
   end
 
 end

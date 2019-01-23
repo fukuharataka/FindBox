@@ -4,10 +4,6 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
-  def show
-    @user = find(current_user.id)
-  end
-
   def edit
     @user = User.find(current_user.id)
   end
@@ -25,7 +21,7 @@ class UsersController < ApplicationController
         redirect_to user_path(current_user)
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
-        redirect_to 'new'
+        render 'new'
       end
     else
       flash.now[:danger] = "入力内容の確認をお願いします"

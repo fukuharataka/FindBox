@@ -20,7 +20,7 @@
 <% unless report.nil?  %>
   <%= link_to "通報取り消し", report_destroy_path(report.id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
 <% else %>
-  <%= link_to "通報", reports_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
+  <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
 <% end %>
 
 
