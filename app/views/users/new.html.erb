@@ -1,20 +1,39 @@
-<%= form_for(@user, url: sign_up_path(@user)) do |f| %>
-  <h2>name</h2>
-  <%= f.text_field :name %>
-
-  <h2>email</h2>
-  <%= f.text_field :email %>
-
-  <h2>password</h2>
-  <%= f.password_field :password %>
-
-  <h2>password_confirmation</h2>
-  <%= f.password_field :password_confirmation %>
-
-  <h2>nickname</h2>
-  <%= f.text_field :nickname %>
-
-  <%= f.submit "登録する"%>
-<% end %>
-
-<% link_to root_url %>
+<div class="full_screen_container b">
+  <%= render 'layouts/header' %>
+  <div class="sign_box b">
+    <%= render 'layouts/error_messages', instance: @user %>
+    <div class="form-box clearfix">
+      <label for='name' class='form-title'>新規ユーザー登録</label>
+    </div>
+    <%= form_for(@user, url: sign_up_path(@user)) do |f| %>
+    <div class="form-box clearfix">
+      <%= f.text_field :name, class: "form form-input", placeholder: "氏名" %>
+      <label for='name'>氏名<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :nickname, class: "form form-input", placeholder: "ボックス太郎" %>
+      <label for='name'>アカウント名<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :email, class: "form form-input", placeholder: "example@hoge.com" %>
+      <label for='name'>メールアドレス<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.password_field :password, class: "form form-input", placeholder: "パスワード" %>
+      <label for='name'>パスワード<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.password_field :password_confirmation, class: "form form-input", placeholder: "パスワード確認" %>
+      <label for='name'>パスワード確認<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :home_house, class: "form form-input", placeholder: "ライブハウス名" %>
+      <label for='name'>ホームグラウンド</label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.submit "新規登録", class: "btn"%>
+    </div>
+    <% end %>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

@@ -1,0 +1,33 @@
+<div class="house_index_box b">
+  <% if current_user.nil? %>
+    <%= render 'layouts/header' %>
+  <% else %>
+    <%= render 'layouts/user_header' %>
+  <% end %>
+  
+  <div class="side_bar_container b">
+  </div>
+
+  <div class="index_container b">
+    <title>live_house_index</title>
+
+    <% @live_houses.each do |f| %>
+      <div class="live_house_index">
+        <div class="b live_house">
+          <div class="image b">
+            <%= image_tag "no_image.png", size: '200x200' %>
+          </div>
+          <p><%= f.name %></p>
+          <p>収容人数:<span><%= f.capacity %></span>人</p>
+          <p>所在地:<span><%= f.prefecture %></span></p>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="page b">
+      <p>ページやで</p>
+    </div>
+  </div>
+
+  <%= render 'layouts/footer' %>
+</div>

@@ -1,0 +1,66 @@
+
+.form {
+  border: 1px solid gray;
+  border-radius: 3px;
+  display: inline-block;
+  margin-right: 35%;
+  float: right;
+}
+
+.form-title {
+  margin-right: 50%;
+}
+
+.form-input {
+  height: 30px;
+  width: 340px;
+  margin-bottom: 30px;
+}
+
+.form-box {
+  display: block;
+  margin-top: 15px;
+}
+
+.form-input-long {
+  height: 30px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form-input-short {
+  height: 30px;
+  width: 200px;
+  margin-bottom: 30px;
+}
+
+.form-textarea {
+  resize: none;
+  width: 586px;
+  margin-bottom: 30px;
+}
+
+
+.sign_box label {
+  float: right;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  margin-bottom: 6px;
+}
+
+.form-req {
+  line-height: 20px;
+  margin-left: 10px;
+  padding: 0 4px;
+  color: red;
+  border: 1px solid red;
+  font-size: 10px;
+  border-radius: 2px;
+}
+
+.form-notes {
+  color: darkgray;
+  font-size: 10px;
+  vertical-align: bottom;
+}

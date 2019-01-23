@@ -1,1 +1,31 @@
-<h1>edit</h1>
+<div class="full_screen_container b">
+  <%= render 'layouts/user_header' %>
+  <div class="sign_box b">
+    <%= render 'layouts/error_messages', instance: @user %>
+    <div class="form-box clearfix">
+      <label for='name' class='form-title'>登録情報編集</label>
+    </div>
+    <%= form_for(@user, url: sign_up_path(@user)) do |f| %>
+    <div class="form-box clearfix">
+      <%= f.text_field :name, class: "form form-input", placeholder: "氏名" %>
+      <label for='name'>氏名<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :nickname, class: "form form-input", placeholder: "ボックス太郎" %>
+      <label for='name'>アカウント名<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :email, class: "form form-input", placeholder: "example@hoge.com" %>
+      <label for='name'>メールアドレス<span class='form-req'>必須</span></label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.text_field :home_house, class: "form form-input", placeholder: "ライブハウス名" %>
+      <label for='name'>ホームグラウンド</label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.submit "編集", class: "btn"%>
+    </div>
+    <% end %>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

@@ -15,10 +15,10 @@ module UsersHelper
   end
 
   def authenticate_user!
-		if current_user.nil?
-			flash[:danger] = 'ログインしてください'
-			redirect_to sign_in_path
-		end
+    if current_user.nil?
+      flash[:denger] = "ログインしてください"
+      redirect_to sign_in_path
+    end
 	end
 
   def authenticate_admin!
@@ -30,5 +30,5 @@ module UsersHelper
       end
     end
   end
-
+  
 end

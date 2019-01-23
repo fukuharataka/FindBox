@@ -1,9 +1,22 @@
-<%= form_for(:session, url: sign_in_path) do |f| %>
-  <h2>email</h2>
-  <%= f.text_field :email %>
-
-  <h2>password</h2>
-  <%= f.password_field :password %>
-
-  <%= f.submit "登録する"%>
-<% end %>
+<div class="full_screen_container b">
+  <%= render 'layouts/header' %>
+  <div class="sign_box b">
+    <div class="form-box clearfix">
+      <label for='name' class='form-title'>ログイン</label>
+    </div>
+    <%= form_for(:session, url: sign_in_path) do |f| %>
+    <div class="form-box clearfix">
+      <%= f.text_field :email, class: "form form-input", placeholder: "example@hoge.com" %>
+      <label for='name'>メールアドレス</label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.password_field :password, class: "form form-input", placeholder: "パスワード" %>
+      <label for='name'>パスワード</label>
+    </div>
+    <div class="form-box clearfix">
+      <%= f.submit "ログイン", class: "btn"%>
+    </div>
+    <% end %>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

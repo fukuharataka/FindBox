@@ -1,26 +1,13 @@
-<!-- <div class="scroll-area">
-  <div class="box box_photo">
-    <div class="top_text">
-      <h1>Find BOX</h1>
-      <p>ライブハウス情報共有サイト</p>
+<div class="full_screen_container top_box">
+    <div class="top_band b clearfix">
+      <div class="logo_container b">
+        <%= link_to "top",root_path %>
+      </div>
+      <div class="band_text_container b">
+        <%= link_to "一覧", sign_in_path, class: "top_text" %>
+        <%= link_to "ログイン", sign_in_path, class: "top_text"  %>
+        <%= link_to "新規登録", sign_up_path, class: "top_text"  %>
+        <%= link_to "検索", '#', class: "top_text" %>
+      </div>
     </div>
-  </div>
-</div> -->
-
-<% if flash[:success] %>
-	<p><%= flash[:success] %></p>
-<% end %>
-<% if current_user %>
-	<p><%= current_user.name %></p>
-	<h1>退会</h1>
-	<%= link_to "退会する",user_path(current_user),method: :delete %>
-
-	<h1>ログアウト</h1>
-	<%= link_to "ログアウト",sign_out_path,method: :delete %>
-
-<%end %>
-
-<%= link_to "新規登録",sign_up_path %>
-<%= link_to "ログイン",sign_in_path %>
-
-<%= link_to "ライブハウス登録", new_live_house_path %>
+</div>

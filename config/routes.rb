@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :photos, only:[:create, :show]
   root 'tops#top'
   resources :users, only:[:update, :show, :edit, :destroy]
   get     'sign_in',                to: 'users#session_new',          as: 'sign_in'
@@ -19,5 +20,9 @@ Rails.application.routes.draw do
   get     'reports/index',          to: 'reports#index',              as: 'reports'
   post    'live_houses/:id/report', to: 'reports#create',             as: 'report_create'
   delete  'report/:id',             to: 'reports#destroy',            as: 'report_destroy'
+
+  get     'reports',             to: 'reports#index',              as: 'reports_index'
+  post    'live_houses/:id/report',         to: 'reports#create',             as: 'reports'
+  delete  'report/:id',          to: 'reports#destroy',            as: 'report_destroy'
 
 end

@@ -1,25 +1,10 @@
-<%= form_for(@live_house, url: update_detail_path(@live_house)) do |f| %>
-  <h2>詳細情報の編集</h2>
-  <%= f.text_area :detail, id:"input" %>
-
-  <%= f.submit "登録する"%>
-<% end %>
-
-<h1>Input: <span id="output"></span></h1>
-
-<script>
-$(function() {
-  var $input = $('#input');
-  var $output = $('#output');
-  $input.on('input', function(event) {
-    var value = $input.val();
-    $output.text(value);
-  });
-
-
-  var $output2 = $('#output2');
-  $input.on('change', function(event) {
-  	$output2.text($input.val());
-  });
-});
-</script>
+<div class="full_screen_container b">
+  <%= render 'layouts/user_header' %>
+  <div class="edit_container b">
+    <%= form_for(@live_house, url: update_detail_path(@live_house)) do |f| %>
+      <%= f.trix_editor :detail, class: "edit_detail_area b"%>
+      <%= f.submit "更新する", class: "btn b"%>
+    <% end %>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

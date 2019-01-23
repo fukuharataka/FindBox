@@ -1,16 +1,15 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!, only:[:edit, :show]
+  before_action :authenticate_user!, only:[:show, :edit]
   def new
     @user = User.new
   end
 
-  def show
-  end
-
   def edit
+    @user = User.find(current_user.id)
   end
 
   def session_new
+    @user = User.new
   end
 
   def session_create
@@ -19,7 +18,7 @@ class UsersController < ApplicationController
       if user.enable == true
         sign_in user
         flash.now[:success] = "ログインしました"
-        redirect_to root_url
+        redirect_to user_path(current_user)
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
         render 'new'
@@ -41,13 +40,20 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "新規登録をしました"
-      redirect_to root_url
+      redirect_to user_path(current_user)
     else
       render 'new'
     end
   end
 
   def update
+    @user = User.find(current_user.id)
+    if @profile.update(user_params)
+      flash[:success] = "ユーザー情報を編集しました"
+      redirect_to root_url
+    else
+      render 'edit'
+    end
   end
 
   def destroy
