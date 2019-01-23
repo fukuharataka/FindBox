@@ -47,7 +47,6 @@
 .edit_container {
   display: inline-block;
   width: 100%;
-  text-align: center;
   height: 85vh;
 }
 
@@ -81,12 +80,11 @@
   display: block;
   overflow: auto;
   width: 100%;
-  height: 80vh;
+  height: 72vh;
 }
 
 .edit_detail_area {
   .btn{
     margin-bottom: 0;
-
   }
 }
