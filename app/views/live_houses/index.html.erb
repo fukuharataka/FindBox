@@ -1,6 +1,10 @@
 <div class="house_index_box b">
-<%= render 'layouts/header' %>
-
+  <% if current_user.nil? %>
+    <%= render 'layouts/header' %>
+  <% else %>
+    <%= render 'layouts/user_header' %>
+  <% end %>
+  
   <div class="side_bar_container b">
   </div>
 

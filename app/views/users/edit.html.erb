@@ -1,9 +1,9 @@
 <div class="full_screen_container b">
-  <%= render 'layouts/header' %>
+  <%= render 'layouts/user_header' %>
   <div class="sign_box b">
     <%= render 'layouts/error_messages', instance: @user %>
     <div class="form-box clearfix">
-      <label for='name' class='form-title'>新規ユーザー登録</label>
+      <label for='name' class='form-title'>登録情報編集</label>
     </div>
     <%= form_for(@user, url: sign_up_path(@user)) do |f| %>
     <div class="form-box clearfix">

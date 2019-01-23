@@ -36,7 +36,7 @@ class LiveHousesController < ApplicationController
     @live_house = LiveHouse.find(params[:id])
     if @live_house.update(basic_params)
       flash[:success] = "ライブハウスの基本情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end
@@ -46,7 +46,7 @@ class LiveHousesController < ApplicationController
     @live_house = LiveHouse.find(params[:id])
     if @live_house.update(detail_params)
       flash[:success] = "ライブハウスの詳細情報を更新しました"
-      redirect_to root_url
+      redirect_to live_house_path(@live_house)
     else
       render 'edit_basic'
     end

@@ -1,3 +1,10 @@
+<% if current_user.nil? %>
+  <%= render 'layouts/header' %>
+<% else %>
+  <%= render 'layouts/user_header' %>
+<% end %>
+
+
 <% @detail_ver.each do |version| %>
   <% unless version.whodunnit.nil? %>
     <p><%= User.find(version.whodunnit).name %></p>
