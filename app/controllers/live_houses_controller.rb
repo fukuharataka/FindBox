@@ -16,6 +16,7 @@ class LiveHousesController < ApplicationController
   end
 
   def index
+    @live_houses = LiveHouse.all
   end
 
   def show

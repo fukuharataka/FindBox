@@ -7,15 +7,15 @@
   <div class="index_container b">
     <title>live_house_index</title>
 
-    <% 15.times do %>
+    <% @live_houses.each do |f| %>
       <div class="live_house_index">
         <div class="b live_house">
           <div class="image b">
             <%= image_tag "no_image.png", size: '200x200' %>
           </div>
-          <p>ライブハウスTaka</p>
-          <p>収容人数<span>100</span>人</p>
-          <p>所在地<span>東京都</span></p>
+          <p><%= f.name %></p>
+          <p>収容人数:<span><%= f.capacity %></span>人</p>
+          <p>所在地:<span><%= f.prefecture %></span></p>
         </div>
       </div>
     <% end %>
