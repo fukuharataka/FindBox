@@ -22,7 +22,7 @@ class UsersController < ApplicationController
         redirect_to edit_user_path(current_user)
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
-        redirect_to 'new'
+        render 'new'
       end
     else
       flash.now[:danger] = "入力内容の確認をお願いします"
