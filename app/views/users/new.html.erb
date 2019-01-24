@@ -1,7 +1,9 @@
 <div class="full_screen_container b">
   <%= render 'layouts/header' %>
   <div class="sign_box b">
-    <%= render 'layouts/error_messages', instance: @user %>
+    <div class="error_container">
+      <%= render 'layouts/error_messages', instance: @user %>
+    </div>
     <div class="form-box clearfix">
       <label for='name' class='form-title'>新規ユーザー登録</label>
     </div>
