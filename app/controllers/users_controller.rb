@@ -14,15 +14,15 @@ class UsersController < ApplicationController
   end
 
   def session_create
-    user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
-      if user.enable == true
-        sign_in user
-        flash.now[:success] = "ログインしました"
+    @user = User.find_by(email: params[:session][:email].downcase)
+    if @user && @user.authenticate(params[:session][:password])
+      if @user.enable == true
+        sign_in @user
+        flash[:success] = "ログインしました"
         redirect_to edit_user_path(current_user)
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
-        render 'new'
+        render 'session_new'
       end
     else
       flash.now[:danger] = "入力内容の確認をお願いします"
