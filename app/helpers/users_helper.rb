@@ -30,7 +30,6 @@ module UsersHelper
       end
     end
   end
-<<<<<<< HEAD
 
   def current_user_nil?
     unless current_user.nil?
@@ -38,7 +37,5 @@ module UsersHelper
       redirect_to root_url
     end
   end
-=======
->>>>>>> 2856c3cb0349ea1265f3f82f06f438739d3819e8
-  
+
 end
