@@ -1,11 +1,13 @@
 <div class="full_screen_container b">
   <%= render 'layouts/user_header' %>
   <div class="sign_box b">
-    <%= render 'layouts/error_messages', instance: @user %>
+    <div class="error_container">
+      <%= render 'layouts/error_messages', instance: @user %>
+    </div>
     <div class="form-box clearfix">
       <label for='name' class='form-title'>登録情報編集</label>
     </div>
-    <%= form_for(@user, url: sign_up_path(@user)) do |f| %>
+    <%= form_for(@user, url: user_path(@user)) do |f| %>
     <div class="form-box clearfix">
       <%= f.text_field :name, class: "form form-input", placeholder: "氏名" %>
       <label for='name'>氏名<span class='form-req'>必須</span></label>
@@ -22,10 +24,15 @@
       <%= f.text_field :home_house, class: "form form-input", placeholder: "ライブハウス名" %>
       <label for='name'>ホームグラウンド</label>
     </div>
-    <div class="form-box clearfix">
-      <%= f.submit "編集", class: "btn"%>
+    <div class="form-box clearfix ">
+      <%= f.submit "編集", class: "btn b"%>
     </div>
     <% end %>
+    <div class="form-box clearfix center">
+      <%= link_to(user_path(current_user)) do %>
+        <button class="btn mt-50">退会</button>
+      <% end %>
+    </div>
   </div>
   <%= render 'layouts/footer' %>
 </div>

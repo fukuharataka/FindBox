@@ -1,13 +1,14 @@
 <div class="full_screen_container top_box">
-    <div class="top_band b clearfix">
-      <div class="logo_container b">
-        <%= link_to "top",root_path %>
+    <div class="top_band clearfix">
+      <div class="logo_container">
+        <%= link_to image_tag("logo_big.png"),root_path %>
       </div>
-      <div class="band_text_container b">
-        <%= link_to "一覧", sign_in_path, class: "top_text" %>
-        <%= link_to "ログイン", sign_in_path, class: "top_text"  %>
-        <%= link_to "新規登録", sign_up_path, class: "top_text"  %>
-        <%= link_to "検索", '#', class: "top_text" %>
+      <div class="band_text_container">
+        <% if current_user.nil? %>
+          <%= render 'guest_top_band' %>
+        <% else %>
+          <%= render 'user_top_band' %>
+        <% end %>
       </div>
     </div>
 </div>
