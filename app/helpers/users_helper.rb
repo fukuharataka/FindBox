@@ -20,4 +20,12 @@ module UsersHelper
       redirect_to sign_in_path
     end
   end
+
+  def current_user_nil?
+    unless current_user.nil?
+      flash[:denger] = "ログイン済みです"
+      redirect_to root_url
+    end
+  end
+  
 end

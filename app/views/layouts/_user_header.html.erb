@@ -1,11 +1,15 @@
 <header class="b">
   <div>
-    <ul>
-      <%= link_to "top",root_path %>
-      <%= link_to "マイページ", user_path %>
-      <%= link_to "新しい箱の登録", new_live_house_path %>
-      <%= link_to "検索", '#'%>
-      <%= link_to "ログアウト", sign_out_path %>
+    <ul class="clearfix">
+      <%= link_to(root_path) do %>
+        <div class="header_logo">
+          <%= image_tag 'logo_big.png', :class =>'logo_t'%>
+        </div>
+      <% end %>
+      <lI><%= link_to "マイページ", edit_user_path(current_user) %></li>
+      <lI><%= link_to "新しい箱の登録", new_live_house_path %></li>
+      <lI><%= link_to "検索", '#'%></li>
+      <lI><%= link_to "ログアウト", sign_out_path, method: :delete %></li>
     </ul>
   </div>
 </header>

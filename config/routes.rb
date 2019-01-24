@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :photos, only:[:create, :show]
   root 'tops#top'
-  resources :users, only:[:update, :show, :edit, :destroy]
+  resources :users, only:[:update, :edit, :destroy]
   get     'sign_in',             to: 'users#session_new',          as: 'sign_in'
   post    'sign_in',             to: 'users#session_create'
   get     'sign_up',             to: 'users#new',                  as: 'sign_up'
