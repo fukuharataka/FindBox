@@ -1,0 +1,27 @@
+<% if current_user.nil? %>
+  <%= render 'layouts/header' %>
+<% else %>
+  <%= render 'layouts/user_header' %>
+<% end %>
+
+
+<% @detail_ver.each do |version| %>
+  <% unless version.whodunnit.nil? %>
+    <p><%= User.find(version.whodunnit).name %></p>
+  <% end %>
+
+  <% if version.reify != nil %>
+    <%= version.reify.detail %>
+  <% end %>
+<% end %>
+<% link_to root_url %>
+
+<% report = Report.find_by(user_id: current_user.id) %>
+<% unless report.nil?  %>
+  <%= link_to "通報取り消し", report_destroy_path(report.id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
+<% else %>
+  <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
+<% end %>
+
+
+<%= sanitize @live_house.detail %>

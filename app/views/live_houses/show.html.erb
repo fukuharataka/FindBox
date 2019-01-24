@@ -3,25 +3,33 @@
 <% else %>
   <%= render 'layouts/user_header' %>
 <% end %>
+<div class="center">
+  <div class="show_basic_box">
+    <div class="image_area">
+      <% report = Report.find_by(user_id: current_user.id) %>
+      <% unless report.nil?  %>
+        <%= link_to "通報中", report_destroy_path(report.id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
+      <% else %>
+        <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
+      <% end %>
+      <%= image_tag "no_image.png", size: '200x200' %>
+    </div>
 
+    <div class="text_area clearfix">
+      <h1 class=""><%= @live_house.name %></h1>
+      <h2 class="">人数: <%= @live_house.capacity %> 人</h2>
+      <h2 class="">場所: <%= @live_house.prefecture %><%= @live_house.address %></h2>
+      <h2 class="">番号: <%= @live_house.phone_number %></h2>
+      <h2 class="">URL  <%= @live_house.hp_url %></h2>
+    </div>
+  </div>
 
-<% @detail_ver.each do |version| %>
-  <% unless version.whodunnit.nil? %>
-    <p><%= User.find(version.whodunnit).name %></p>
-  <% end %>
-
-  <% if version.reify != nil %>
-    <%= version.reify.detail %>
-  <% end %>
-<% end %>
-<% link_to root_url %>
-
-<% report = Report.find_by(user_id: current_user.id) %>
-<% unless report.nil?  %>
-  <%= link_to "通報取り消し", report_destroy_path(report.id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
-<% else %>
-  <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
-<% end %>
-
-
-<%= sanitize @live_house.detail %>
+  <div class="show_detail_box">
+    <div class="side_ber">
+    </div>
+    <div class="text_area">
+      <%= sanitize @live_house.detail %>
+    </div>
+  </div>
+</div>
+<%= render 'layouts/footer' %>

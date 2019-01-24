@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   put     '/:id/update_detail',     to: 'live_houses#update_detail'
 
   get     'reports/:id',            to: 'reports#show',               as: 'report'
-  get     'reports/index',          to: 'reports#index',              as: 'reports'
+  get     'reports',          to: 'reports#index',              as: 'reports'
   post    'live_houses/:id/report', to: 'reports#create',             as: 'report_create'
   delete  'report/:id',             to: 'reports#destroy',            as: 'report_destroy'
 

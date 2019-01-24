@@ -1,0 +1,23 @@
+<div class="full_screen_container center">
+  <%= render 'layouts/admin_header' %>
+  <div class="index_container inline-block pl-50">
+    <table class="report">
+      <tr>
+        <th class="report_caption">ライブハウス</th>
+        <td>ユーザー</td>
+        <td>理由</td>
+      </tr>
+      <% @reports.each do |f| %>
+        <tr>
+          <th><%= f.live_house.name%></th>
+          <td><%= f.user.name%></td>
+          <td><%= f.reason %></td>
+        </tr>
+      <% end %>
+    </table>
+    <div class="page mt-50">
+      <p class="">ページやで</p>
+    </div>
+  </div>
+  <%= render 'layouts/footer' %>
+</div>

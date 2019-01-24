@@ -1,3 +1,19 @@
 // Place all the styles related to the reports controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.report {
+  width: 100%;
+  border-spacing: 0;
+  th {
+    border-bottom: solid 2px rgb(250, 175, 0);
+    padding: 15px 0;
+  }
+  td{
+    border-bottom: solid 2px #ddd;
+    text-align: center;
+    padding: 15px 0;
+  }
+}

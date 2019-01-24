@@ -88,3 +88,42 @@
     margin-bottom: 0;
   }
 }
+
+.show_basic_box {
+  width: 100%;
+  margin: 3px;
+  .image_area {
+    display: inline-block;
+    width: 350px;
+  }
+
+  .text_area {
+    display: inline-block;
+    width: 500px;
+    h1, h2 {
+      margin: 3px;
+      width: 80%;
+    }
+    h1 {
+      font-size: 25px;
+      border-bottom: dotted 1px gray;
+      text-align: left;
+      float: left;
+    }
+    h2 {
+      text-align: left;
+      float: right;
+      font-size: 20px;
+    }
+  }
+}
+
+.show_detail_box {
+  display: inline-block;
+  width: 850px;
+  margin: 3px;
+  text-align: center;
+  .text_area {
+    text-align: left;
+  }
+}
