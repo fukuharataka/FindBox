@@ -5,15 +5,15 @@
 
 
 .report {
-  width: 85%;
+  width: 100%;
   border-spacing: 0;
   th {
     border-bottom: solid 2px rgb(250, 175, 0);
-    padding: 10px 0;
+    padding: 15px 0;
   }
   td{
     border-bottom: solid 2px #ddd;
     text-align: center;
-    padding: 10px 0;
+    padding: 15px 0;
   }
 }
