@@ -18,7 +18,7 @@ class UsersController < ApplicationController
     if @user && @user.authenticate(params[:session][:password])
       if @user.enable == true
         sign_in @user
-        flash.now[:success] = "ログインしました"
+        flash[:success] = "ログインしました"
         redirect_to edit_user_path(current_user)
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
