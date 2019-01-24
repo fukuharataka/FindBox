@@ -124,6 +124,28 @@ header {
   letter-spacing: 2px;
 }
 
+.flash_message_danger {
+  width: 1170px;
+  height: 50px;
+  margin: 10px auto 0;
+  padding: 50px 0;
+  text-align: center;
+  border-radius: 6px;
+  color: $red;
+  letter-spacing: 2px;
+}
+
+.flash_message_success {
+  width: 1170px;
+  height: 50px;
+  margin: 10px auto 0;
+  padding: 50px 0;
+  text-align: center;
+  border-radius: 6px;
+  color: rgb(250, 175, 0);
+  letter-spacing: 2px;
+}
+
 .alert-success {
   background-color: #6fc2e7;
 }
