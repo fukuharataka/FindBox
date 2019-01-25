@@ -5,12 +5,17 @@
     <%= render 'layouts/user_header' %>
   <% end %>
 
+
   <div class="side_bar_container b">
+    <%= search_form_for @search do |f| %>
+      <%= f.search_field :name_cont %>
+      <%= f.submit %>
+    <% end %>
   </div>
+
 
   <div class="index_container b">
     <title>live_house_index</title>
-
     <% @live_houses.each do |f| %>
       <div class="live_house_index">
         <div class="b live_house">
@@ -23,11 +28,9 @@
         </div>
       </div>
     <% end %>
-
     <div id="page_container b">
       <%= paginate @live_houses %>
     </div>
   </div>
-
   <%= render 'layouts/footer' %>
 </div>

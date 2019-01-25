@@ -19,6 +19,15 @@ class LiveHousesController < ApplicationController
     @live_houses = LiveHouse.page(params[:page]).per(15)
   end
 
+  def search
+    @q = params[:q]
+  end
+
+  def search_index
+    @q = params[:q]
+    @live_house = LiveHouse.ransack(name_cont: @q).result
+  end
+
   def show
     @live_house = LiveHouse.find(params[:id])
     @detail_ver = @live_house.versions
@@ -72,4 +81,9 @@ private
   def basic_params
     params.require(:live_house).permit(:name, :hp_url, :capacity, :prefecture, :address, :phone_number, :image)
   end
+
+  def search_params
+    params.require(:q).permit(:name_cont)
+  end
+
 end
