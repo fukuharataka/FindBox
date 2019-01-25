@@ -4,7 +4,7 @@
   <% else %>
     <%= render 'layouts/user_header' %>
   <% end %>
-  
+
   <div class="side_bar_container b">
   </div>
 
@@ -24,8 +24,8 @@
       </div>
     <% end %>
 
-    <div class="page b">
-      <p>ページやで</p>
+    <div id="page_container b">
+      <%= paginate @live_houses %>
     </div>
   </div>
 

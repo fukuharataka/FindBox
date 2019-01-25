@@ -16,7 +16,7 @@ class LiveHousesController < ApplicationController
   end
 
   def index
-    @live_houses = LiveHouse.all
+    @live_houses = LiveHouse.page(params[:page]).per(15)
   end
 
   def show
