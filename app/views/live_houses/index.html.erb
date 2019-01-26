@@ -12,8 +12,8 @@
       <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: 'キーワードを入力' %>
       <div class="mt-50">
         <label><%= radio_button_tag :capacity, "0" %> 0人以上 </label>
-        <label><%= radio_button_tag :capacity, "100" %> 100以上 </label>
-        <label><%= radio_button_tag :capacity, "1000" %> 1000以上</label>
+        <label><%= radio_button_tag :capacity, "100" %> 100人以上 </label>
+        <label><%= radio_button_tag :capacity, "1000" %> 1000人以上</label>
       </div>
       <%= submit_tag '検索', id: 'sbtn', class: 'btn-lg btn-light mt-50 b' %>
     <% end %>
