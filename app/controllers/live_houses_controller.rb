@@ -16,16 +16,12 @@ class LiveHousesController < ApplicationController
   end
 
   def index
-    @live_houses = LiveHouse.page(params[:page]).per(15)
-  end
-
-  def search
-    @q = params[:q]
-  end
-
-  def search_index
-    @q = params[:q]
-    @live_house = LiveHouse.ransack(name_cont: @q).result
+    if params[:q].nil?
+      @live_houses = LiveHouse.page(params[:page]).per(15)
+    else
+      @q = params[:q]
+      @live_houses = LiveHouse.ransack(name_or_prefecture_cont: @q).result.page(params[:page]).per(15)
+    end
   end
 
   def show

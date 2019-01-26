@@ -15,8 +15,6 @@ Rails.application.routes.draw do
   get     '/:id/edit_detail',       to: 'live_houses#edit_detail',    as: 'edit_detail'
   patch   '/:id/update_detail',     to: 'live_houses#update_detail',  as: 'update_detail'
   put     '/:id/update_detail',     to: 'live_houses#update_detail'
-  get     '/search',                to: 'live_houses#search',         as: 'search'
-  get     '/search/index',          to: 'live_houses#search_index'
 
   get     'reports/:id',            to: 'reports#show',               as: 'report'
   get     'reports',                to: 'reports#index',              as: 'reports'
