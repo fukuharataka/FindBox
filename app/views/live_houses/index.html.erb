@@ -5,12 +5,24 @@
     <%= render 'layouts/user_header' %>
   <% end %>
 
-  <div class="side_bar_container b">
+
+  <div class="side_bar_container center b">
+
+    <%= form_tag live_houses_path, id: 'form1', method: :get do %>
+      <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: 'キーワードを入力' %>
+      <div class="mt-50">
+        <label><%= radio_button_tag :capacity, "0" %> 0人以上 </label>
+        <label><%= radio_button_tag :capacity, "100" %> 100人以上 </label>
+        <label><%= radio_button_tag :capacity, "1000" %> 1000人以上</label>
+      </div>
+      <%= submit_tag '検索', id: 'sbtn', class: 'btn-lg btn-light mt-50 b' %>
+    <% end %>
+
   </div>
+
 
   <div class="index_container b">
     <title>live_house_index</title>
-
     <% @live_houses.each do |f| %>
       <div class="live_house_index">
         <div class="b live_house">
@@ -23,11 +35,9 @@
         </div>
       </div>
     <% end %>
-
     <div id="page_container b">
       <%= paginate @live_houses %>
     </div>
   </div>
-
   <%= render 'layouts/footer' %>
 </div>
