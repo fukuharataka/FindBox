@@ -9,7 +9,7 @@
       </tr>
       <% @reports.each do |f| %>
         <tr>
-          <th><%= f.live_house.name%></th>
+          <th><%=link_to f.live_house.name, report_path(f.id) %></th>
           <td><%= f.user.name%></td>
           <td><%= f.reason %></td>
         </tr>

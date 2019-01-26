@@ -20,5 +20,6 @@ Rails.application.routes.draw do
   get     'reports',                to: 'reports#index',              as: 'reports'
   post    'live_houses/:id/report', to: 'reports#create',             as: 'report_create'
   delete  'report/:id',             to: 'reports#destroy',            as: 'report_destroy'
+  get     'show_ver',        to: 'reports#show_ver',           as: 'report_ver'
 
 end

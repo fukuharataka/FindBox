@@ -6,9 +6,9 @@
 <div class="center">
   <div class="show_basic_box">
     <div class="image_area">
-      <% report = Report.find_by(user_id: current_user.id) %>
-      <% unless report.nil?  %>
-        <%= link_to "通報中", report_destroy_path(report.id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
+      <% report = Report.where(user_id: current_user.id).where(live_house_id: @live_house.id) %>
+      <% unless report[0].nil?  %>
+        <%= link_to "通報中", report_destroy_path(report[0].id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
       <% else %>
         <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
       <% end %>

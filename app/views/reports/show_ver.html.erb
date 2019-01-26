@@ -1,0 +1,29 @@
+<%= render 'layouts/admin_header' %>
+<div class="center">
+  <% unless @live_house_ver.nil? %>
+  <% binding.pry %>
+    <div class="show_basic_box">
+      <div class="image_area">
+        <%= image_tag "no_image.png", size: '200x200' %>
+      </div>
+
+      <div class="text_area clearfix">
+        <h1 class=""><%= @live_house_ver.name %></h1>
+        <h2 class="">人数: <%= @live_house_ver.capacity %> 人</h2>
+        <h2 class="">場所: <%= @live_house_ver.prefecture %><%= @live_house.address %></h2>
+        <h2 class="">番号: <%= @live_house_ver.phone_number %></h2>
+        <h2 class="">URL  <%= @live_house_ver.hp_url %></h2>
+      </div>
+    </div>
+
+    <div class="show_detail_box">
+      <div class="side_ber">
+      </div>
+      <div class="text_area">
+        <%= sanitize @live_house_ver.detail %>
+      </div>
+    </div>
+  <% end %>
+  <p>作成されました</p>
+</div>
+<%= render 'layouts/footer' %>

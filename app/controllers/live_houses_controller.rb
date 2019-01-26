@@ -26,7 +26,6 @@ class LiveHousesController < ApplicationController
 
   def show
     @live_house = LiveHouse.find(params[:id])
-    @detail_ver = @live_house.versions
   end
 
   def edit_basic

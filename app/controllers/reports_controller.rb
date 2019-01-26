@@ -15,7 +15,7 @@ class ReportsController < ApplicationController
 
   def destroy
     report = Report.find_by(user_id: current_user.id)
-    report.destroy
+    report.delete
     flash[:success] = "通報を取り消しました"
     redirect_to root_url
   end
@@ -25,6 +25,14 @@ class ReportsController < ApplicationController
   end
 
   def show
+    report = Report.find(params[:id]).live_house_id
+    @live_house = LiveHouse.find(report)
+    @live_house_ver = @live_house.versions.page(params[:page]).per(15)
+  end
+
+  def show_ver
+    @live_house = LiveHouse.find(params[:house_id])
+    @live_house_ver = @live_house.versions.find(params[:ver_id]).reify
   end
 
 end
