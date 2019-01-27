@@ -68,6 +68,9 @@ class LiveHousesController < ApplicationController
     end
   end
 
+  def js_test
+  end
+
 private
   def detail_params
     params.require(:live_house).permit(:detail)

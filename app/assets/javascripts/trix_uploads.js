@@ -3,7 +3,7 @@ function uploadAttachment(attachment){
   var form = new FormData;
   form.append("Contnt-Type", file.type);
   form.append("photo[image]", file);
-
+  console.log(file);
   var xhr = new XMLHttpRequest;
   xhr.open("POST", "/photos.json", true);
   xhr.setRequestHeader("X-CSRF-Token", Rails.csrfToken());
@@ -16,13 +16,13 @@ function uploadAttachment(attachment){
   xhr.onload = function(){
     if (xhr.status === 201) {
       var data = JSON.parse(xhr.responseText);
+      console.log(data);
       return attachment.setAttributes({
         url: data.image_url,
         href: data.image_url
       })
     }
   }
-
   return xhr.send(form);
 }
 
