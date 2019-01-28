@@ -5,8 +5,9 @@
       <%= render 'layouts/error_messages', instance: @live_house %>
     </div>
     <div class="edit_box b">
-      <div class="image_box b">
-        <%= image_tag "no_image.png", size: '200x200' %>
+      <div class="image_box imgInput b">
+        <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
+        <input type="file" name="file1">
       </div>
       <div class="edit_aria b">
         <div class="form-box clearfix center">

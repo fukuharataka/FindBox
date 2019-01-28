@@ -16,7 +16,6 @@ function uploadAttachment(attachment){
   xhr.onload = function(){
     if (xhr.status === 201) {
       var data = JSON.parse(xhr.responseText);
-      console.log(data);
       return attachment.setAttributes({
         url: data.image_url,
         href: data.image_url
