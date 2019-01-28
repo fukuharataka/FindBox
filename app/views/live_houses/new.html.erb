@@ -4,8 +4,8 @@
     <div class="error_container_house">
       <%= render 'layouts/error_messages', instance: @live_house %>
     </div>
-    <div class="edit_box b">
-      <div class="image_box imgInput b">
+    <div class="edit_box b imgInput ">
+      <div class="image_box b">
         <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
         <input type="file" name="file1">
       </div>
@@ -14,6 +14,7 @@
           <label for='name'>ライブハウス新規登録</label>
         </div>
         <%= form_for(@live_house, url: live_houses_path(@live_house)) do |f| %>
+        <%= f.hidden_field :image_id, id: "img_id" %>
         <div class="form-box clearfix">
           <%= f.text_field :name, class: "right form form-input", placeholder: 'ライブハウス名' %>
           <label class="right">名前<span class='form-req'>必須</span></label>

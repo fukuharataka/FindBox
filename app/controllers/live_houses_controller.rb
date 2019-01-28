@@ -7,6 +7,7 @@ class LiveHousesController < ApplicationController
 
   def create
     @live_house = LiveHouse.new(basic_params)
+    binding.pry
     if @live_house.save
       flash[:success] = "ライブハウスを新規に登録しました"
       redirect_to live_house_path(@live_house)
@@ -77,7 +78,7 @@ private
   end
 
   def basic_params
-    params.require(:live_house).permit(:name, :hp_url, :capacity, :prefecture, :address, :phone_number, :image)
+    params.require(:live_house).permit(:name, :hp_url, :capacity, :prefecture, :address, :phone_number, :image_id)
   end
 
   def search_params

@@ -1,4 +1,5 @@
 $(function(){
+
   var setFileInput = $('.imgInput'),
   setFileImg = $('.imgView');
 
@@ -37,7 +38,7 @@ $(function(){
 
         xhr.onload = function () {
           var data = JSON.parse(xhr.responseText);
-          console.log(data);
+          document.getElementById("img_id").value = data.id
         };
         xhr.send(form);
 
