@@ -7,7 +7,6 @@ class LiveHousesController < ApplicationController
 
   def create
     @live_house = LiveHouse.new(basic_params)
-    binding.pry
     if @live_house.save
       flash[:success] = "ライブハウスを新規に登録しました"
       redirect_to live_house_path(@live_house)
@@ -27,10 +26,17 @@ class LiveHousesController < ApplicationController
 
   def show
     @live_house = LiveHouse.find(params[:id])
+    binding.pry
+    unless @live_house.image_id == ""
+      @photo = Photo.find(@live_house.image_id)
+    end
   end
 
   def edit_basic
     @live_house = LiveHouse.find(params[:id])
+    unless @live_house.image_id == ""
+      @photo = Photo.find(@live_house.image_id)
+    end
   end
 
   def edit_detail

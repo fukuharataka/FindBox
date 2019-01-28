@@ -14,34 +14,34 @@
           <label for='name'>ライブハウス新規登録</label>
         </div>
         <%= form_for(@live_house, url: live_houses_path(@live_house)) do |f| %>
-        <%= f.hidden_field :image_id, id: "img_id" %>
-        <div class="form-box clearfix">
-          <%= f.text_field :name, class: "right form form-input", placeholder: 'ライブハウス名' %>
-          <label class="right">名前<span class='form-req'>必須</span></label>
-        </div>
-        <div class="form-box clearfix">
-          <%= f.number_field :capacity, class: "right form form-input", placeholder:"10000" %>
-          <label class="right">収容人数<span class='form-req'>必須</span></label>
-        </div>
-        <div class="form-box clearfix">
-          <%= f.text_field :prefecture, class: "right form form-input", placeholder:"東京都" %>
-          <label class="right">都道府県<span class='form-req'>必須</span></label>
-        </div>
-        <div class="form-box clearfix">
-          <label for='name'>以降の住所</label>
-          <%= f.text_field :address, class: "form form-input", placeholder:"〇〇区〇〇町1丁目1-1" %>
-        </div>
-        <div class="form-box clearfix">
-          <label for='name'>HPのURL</label>
-          <%= f.text_field :hp_url, class: "form form-input", placeholder:"www.LiveHouse.com" %>
-        </div>
-        <div class="form-box clearfix">
-          <label for='name'>電話番号</label>
-          <%= f.text_field :phone_number, class: "form form-input", placeholder:"09000000000" %>
-        </div>
-        <div class="form-box clearfix">
-          <%= f.submit "登録する", class: "btn b"%>
-        </div>
+          <%= f.hidden_field :image_id, id: "img_id" %>
+          <div class="form-box clearfix">
+            <%= f.text_field :name, class: "right form form-input", placeholder: 'ライブハウス名' %>
+            <label class="right">名前<span class='form-req'>必須</span></label>
+          </div>
+          <div class="form-box clearfix">
+            <%= f.number_field :capacity, class: "right form form-input", placeholder:"10000" %>
+            <label class="right">収容人数<span class='form-req'>必須</span></label>
+          </div>
+          <div class="form-box clearfix">
+            <%= f.text_field :prefecture, class: "right form form-input", placeholder:"東京都" %>
+            <label class="right">都道府県<span class='form-req'>必須</span></label>
+          </div>
+          <div class="form-box clearfix">
+            <label for='name'>以降の住所</label>
+            <%= f.text_field :address, class: "form form-input", placeholder:"〇〇区〇〇町1丁目1-1" %>
+          </div>
+          <div class="form-box clearfix">
+            <label for='name'>HPのURL</label>
+            <%= f.text_field :hp_url, class: "form form-input", placeholder:"www.LiveHouse.com" %>
+          </div>
+          <div class="form-box clearfix">
+            <label for='name'>電話番号</label>
+            <%= f.text_field :phone_number, class: "form form-input", placeholder:"09000000000" %>
+          </div>
+          <div class="form-box clearfix">
+            <%= f.submit "登録する", class: "btn b"%>
+          </div>
         <% end %>
       </div>
     </div>
