@@ -4,7 +4,11 @@
   <% binding.pry %>
     <div class="show_basic_box">
       <div class="image_area">
-        <%= image_tag "no_image.png", size: '200x200' %>
+        <% if @photo.nil? %>
+          <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
+        <% else %>
+          <%= image_tag @photo.image_url, size: '200x200', class: "imgView" %>
+        <% end %>
       </div>
 
       <div class="text_area clearfix">

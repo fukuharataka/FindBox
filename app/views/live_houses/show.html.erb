@@ -12,7 +12,11 @@
       <% else %>
         <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
       <% end %>
-      <%= image_tag "no_image.png", size: '200x200' %>
+      <% if @photo.nil? %>
+        <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
+      <% else %>
+        <%= image_tag @photo.image_url, size: '200x200', class: "imgView" %>
+      <% end %>
     </div>
 
     <div class="text_area clearfix">

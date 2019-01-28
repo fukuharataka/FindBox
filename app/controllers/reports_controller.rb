@@ -33,6 +33,9 @@ class ReportsController < ApplicationController
   def show_ver
     @live_house = LiveHouse.find(params[:house_id])
     @live_house_ver = @live_house.versions.find(params[:ver_id]).reify
+    unless @live_house.image_id == ""
+      @photo = Photo.find(@live_house.image_id)
+    end
   end
 
 end

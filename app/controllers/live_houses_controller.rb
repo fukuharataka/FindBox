@@ -26,10 +26,17 @@ class LiveHousesController < ApplicationController
 
   def show
     @live_house = LiveHouse.find(params[:id])
+    binding.pry
+    unless @live_house.image_id == ""
+      @photo = Photo.find(@live_house.image_id)
+    end
   end
 
   def edit_basic
     @live_house = LiveHouse.find(params[:id])
+    unless @live_house.image_id == ""
+      @photo = Photo.find(@live_house.image_id)
+    end
   end
 
   def edit_detail
@@ -68,13 +75,16 @@ class LiveHousesController < ApplicationController
     end
   end
 
+  def js_test
+  end
+
 private
   def detail_params
     params.require(:live_house).permit(:detail)
   end
 
   def basic_params
-    params.require(:live_house).permit(:name, :hp_url, :capacity, :prefecture, :address, :phone_number, :image)
+    params.require(:live_house).permit(:name, :hp_url, :capacity, :prefecture, :address, :phone_number, :image_id)
   end
 
   def search_params
