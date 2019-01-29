@@ -26,7 +26,12 @@
       <div class="live_house_index">
         <div class="b live_house">
           <div class="image b">
-            <%= image_tag "no_image.png", size: '200x200' %>
+            <% photo = f.image_id %>
+            <% if photo == "" %>
+              <%= image_tag "no_image.png", size: '200x200' %>
+            <% else %>
+              <%= image_tag Photo.find(f.image_id).image_url, size: '200x200' %>
+            <% end %>
           </div>
           <p><%= f.name %></p>
           <p>収容人数:<span><%= f.capacity %></span>人</p>

@@ -2,7 +2,7 @@ $(function(){
 
   var setFileInput = $('.imgInput'),
   setFileImg = $('.imgView');
-
+  console.log(setFileImg);
   setFileInput.each(function(){
     var selfFile = $(this),
     selfInput = $(this).find('input[type=file]'),
@@ -12,7 +12,6 @@ $(function(){
     selfInput.change(function(){
       var file = $(this).prop('files')[0],
       fileRdr = new FileReader();
-
       if (!this.files.length){
         prevElm.attr('src', orgPass);
         return;

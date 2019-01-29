@@ -7,7 +7,7 @@
         </div>
       <% end %>
       <lI><%= link_to "マイページ", edit_user_path(current_user) %></li>
-      <lI><%= link_to "新しい箱の登録", new_live_house_path %></li>
+      <lI data-turbolinks="false"><%= link_to "新しい箱の登録", new_live_house_path %></li>
       <lI><%= link_to "検索", live_houses_path %></li>
       <lI><%= link_to "ログアウト", sign_out_path, method: :delete %></li>
     </ul>
