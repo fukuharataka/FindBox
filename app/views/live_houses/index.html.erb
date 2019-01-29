@@ -9,7 +9,7 @@
   <div class="side_bar_container center b">
 
     <%= form_tag live_houses_path, id: 'form1', method: :get do %>
-      <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: 'キーワードを入力' %>
+      <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: '名前or都道府県' %>
       <div class="mt-50">
         <label><%= radio_button_tag :capacity, "0" %> 0人以上 </label>
         <label><%= radio_button_tag :capacity, "100" %> 100人以上 </label>
