@@ -1,5 +1,5 @@
 class ReportsController < ApplicationController
-  before_action :authenticate_admin!, only:[]
+  before_action :authenticate_admin!, only:[:index, :show, :show_ver]
   def create
     report = Report.new
     report.user_id = current_user.id
