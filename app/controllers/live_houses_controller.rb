@@ -26,7 +26,6 @@ class LiveHousesController < ApplicationController
 
   def show
     @live_house = LiveHouse.find(params[:id])
-    binding.pry
     unless @live_house.image_id == ""
       @photo = Photo.find(@live_house.image_id)
     end
