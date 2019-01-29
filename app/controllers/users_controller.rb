@@ -38,6 +38,10 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    user = User.where(id: 1)
+    if user[0] == nil
+      @user.admin = true
+    end
     if @user.save
       sign_in @user
       flash[:success] = "新規登録をしました"
@@ -68,6 +72,6 @@ class UsersController < ApplicationController
 
 private
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :nickname, :home_house)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :nickname, :home_house, :admin)
   end
 end
