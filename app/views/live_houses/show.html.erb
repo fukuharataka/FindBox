@@ -6,12 +6,6 @@
 <div class="center">
   <div class="show_basic_box">
     <div class="image_area">
-      <% report = Report.where(user_id: current_user.id).where(live_house_id: @live_house.id) %>
-      <% unless report[0].nil?  %>
-        <%= link_to "通報中", report_destroy_path(report[0].id), method: :delete, data: { confirm: '通報を取り消しますか？'}%>
-      <% else %>
-        <%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%>
-      <% end %>
       <% if @photo.nil? %>
         <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
       <% else %>
@@ -25,6 +19,15 @@
       <h2 class="">場所: <%= @live_house.prefecture %><%= @live_house.address %></h2>
       <h2 class="">番号: <%= @live_house.phone_number %></h2>
       <h2 class="">URL  <%= @live_house.hp_url %></h2>
+      <% unless current_user.nil? %>
+        <h2><%= link_to "編集", edit_basic_path(@live_house.id) %></h2>
+        <% report = Report.where(user_id: current_user.id).where(live_house_id: @live_house.id) %>
+        <% unless report[0].nil?  %>
+          <h2><%= link_to "通報中", report_destroy_path(report[0].id), method: :delete, data: { confirm: '通報を取り消しますか？'}%></h2>
+        <% else %>
+          <h2><%= link_to "通報", report_create_path(@live_house), method: :post, data: { confirm: '本当に通報しますか？'}%></h2>
+        <% end %>
+      <% end %>
     </div>
   </div>
 
