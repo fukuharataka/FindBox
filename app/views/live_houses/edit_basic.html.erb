@@ -18,8 +18,8 @@
         <input type="file" name="file1">
       </div>
       <div class="edit_aria">
-        <div class="form-box clearfix center">
-          <label for='name'>ライブハウス編集</label>
+        <div class="form_title_box clearfix center">
+          <label for='name'>基本情報</label>
         </div>
         <%= form_for(@live_house, url: update_basic_path(@live_house)) do |f| %>
           <%= f.hidden_field :image_id, id: "img_id" %>
