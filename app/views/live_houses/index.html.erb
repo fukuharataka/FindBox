@@ -10,7 +10,7 @@
   <% end %>
 
 
-  <div class="side_bar_container center b">
+  <div class="side_bar_container center">
 
     <%= form_tag live_houses_path, id: 'form1', method: :get do %>
       <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: '名前or都道府県' %>
@@ -24,13 +24,13 @@
 
   </div>
 
-  <div class="index_container b">
-    <title>live_house_index</title>
+  <div class="index_container">
+    <title class="mt-10">ライブハウス一覧</title>
     <% @live_houses.each do |f| %>
       <div class="live_house_index">
         <%= link_to live_house_path(f.id) do%>
-          <div class="b live_house">
-            <div class="image b">
+          <div class="live_house">
+            <div class="image">
               <% photo = f.image_id %>
               <% if photo == "" %>
                 <%= image_tag "no_image.png", size: '200x200' %>
@@ -45,7 +45,7 @@
         <% end %>
       </div>
     <% end %>
-    <div id="page_container b">
+    <div id="page_container">
       <%= paginate @live_houses %>
     </div>
   </div>
