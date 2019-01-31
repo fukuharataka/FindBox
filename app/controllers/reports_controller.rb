@@ -6,10 +6,10 @@ class ReportsController < ApplicationController
     report.live_house_id = params[:id]
     if report.save
       flash[:success] = "通報成功"
-      redirect_to root_url
+      redirect_to live_house_path(report.live_house_id)
     else
       flash[:success] = "通報失敗"
-      redirect_to root_url
+      redirect_to live_house_path(report.live_house_id)
     end
   end
 
@@ -17,7 +17,7 @@ class ReportsController < ApplicationController
     report = Report.find_by(user_id: current_user.id)
     report.delete
     flash[:success] = "通報を取り消しました"
-    redirect_to root_url
+    redirect_to live_house_path(report.live_house_id)
   end
 
   def index
