@@ -19,7 +19,7 @@ class UsersController < ApplicationController
       if @user.enable == true
         sign_in @user
         flash[:success] = "ログインしました"
-        redirect_to edit_user_path(current_user)
+        redirect_to live_houses_path
       else
         flash.now[:danger] = "すでに退会済みユーザーです"
         render 'session_new'
@@ -45,7 +45,7 @@ class UsersController < ApplicationController
     if @user.save
       sign_in @user
       flash[:success] = "新規登録をしました"
-      redirect_to edit_user_path(current_user)
+      redirect_to live_houses_path
     else
       render 'new'
     end
