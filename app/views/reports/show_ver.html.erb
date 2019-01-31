@@ -27,6 +27,8 @@
       </div>
     </div>
   <% end %>
-  <p>作成されました</p>
+  <% if params[:ver_id] == "2" %>
+    <p>createアクションにて作成されました</p>
+  <% end %>
 </div>
 <%= render 'layouts/footer' %>

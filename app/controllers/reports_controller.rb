@@ -21,7 +21,7 @@ class ReportsController < ApplicationController
   end
 
   def index
-    @reports = Report.all
+    @reports = Report.page(params[:page]).per(15)
   end
 
   def show
