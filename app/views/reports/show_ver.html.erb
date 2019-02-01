@@ -1,3 +1,4 @@
+<%= render 'layouts/admin_header' %>
 <div class="center">
   <% unless @live_house_ver.nil? %>
     <div class="show_basic_box">
@@ -31,3 +32,4 @@
   <% end %>
   <p class="mt-25"><%= link_to "戻る", report_path(params[:report_id]) %></p>
 </div>
+<%= render 'layouts/footer' %>

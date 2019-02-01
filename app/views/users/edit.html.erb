@@ -1,4 +1,9 @@
 <div class="full_screen_container b">
+  <% if current_user.admin == false %>
+    <%= render 'layouts/user_header' %>
+  <% else %>
+    <%= render 'layouts/admin_header' %>
+  <% end %>
   <div class="sign_box">
     <div class="error_container">
       <%= render 'layouts/error_messages', instance: @user %>
@@ -34,4 +39,5 @@
       <% end %>
     </div>
   </div>
+  <%= render 'layouts/footer' %>
 </div>

@@ -1,15 +1,27 @@
 <div class="house_index_box b">
+  <% if current_user.nil? %>
+    <%= render 'layouts/header' %>
+  <% else %>
+    <% if current_user.admin == false %>
+      <%= render 'layouts/user_header' %>
+    <% else %>
+      <%= render 'layouts/admin_header' %>
+    <% end %>
+  <% end %>
+
+
   <div class="side_bar_container center">
+
     <%= form_tag live_houses_path, id: 'form1', method: :get do %>
       <%= text_field_tag :q, nil, id: 'sbox', class: 'b mt-50' ,placeholder: 'キーワード' %>
-      <select class="mt-50">
-        <option value="">選択してください</option>
-        <option value="/artists/all_new">0人以上</option>
-        <option value="/artists/all_old">100人以上</option>
-        <option value="/artists/all_popular">1000に以上</option>
-      </select>
+      <div class="mt-50">
+        <label><%= radio_button_tag :capacity, "0" %> 0人以上 </label>
+        <label><%= radio_button_tag :capacity, "100" %> 100人以上 </label>
+        <label><%= radio_button_tag :capacity, "1000" %> 1000人以上</label>
+      </div>
       <%= submit_tag '検索', id: 'sbtn', class: 'btn-lg btn-light mt-50 b' %>
     <% end %>
+
   </div>
 
   <div class="index_container">
@@ -37,4 +49,5 @@
       <%= paginate @live_houses %>
     </div>
   </div>
+  <%= render 'layouts/footer' %>
 </div>

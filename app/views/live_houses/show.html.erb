@@ -1,3 +1,12 @@
+<% if current_user.nil? %>
+  <%= render 'layouts/header' %>
+<% else %>
+  <% if current_user.admin == false %>
+    <%= render 'layouts/user_header' %>
+  <% else %>
+    <%= render 'layouts/admin_header' %>
+  <% end %>
+<% end %>
 <div class="center">
   <div class="show_basic_box">
     <div class="image_area">
@@ -35,3 +44,4 @@
     </div>
   </div>
 </div>
+<%= render 'layouts/footer' %>

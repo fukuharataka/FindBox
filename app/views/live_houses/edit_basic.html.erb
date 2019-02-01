@@ -1,4 +1,9 @@
 <div class="full_screen_container b">
+  <% if current_user.admin == false %>
+    <%= render 'layouts/user_header' %>
+  <% else %>
+    <%= render 'layouts/admin_header' %>
+  <% end %>
   <div class="edit_container center">
     <div class="error_container_house">
       <%= render 'layouts/error_messages', instance: @live_house %>
@@ -49,4 +54,5 @@
       </div>
     </div>
   </div>
+  <%= render 'layouts/footer' %>
 </div>
