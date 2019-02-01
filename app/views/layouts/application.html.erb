@@ -10,6 +10,19 @@
   </head>
 
   <body>
+    <!-- <div>
+    <% if current_user.nil? %>
+      <%= render 'layouts/header' %>
+    <% else %>
+      <% if current_user.admin == false %>
+        <%= render 'layouts/user_header' %>
+      <% else %>
+        <%= render 'layouts/admin_header' %>
+      <% end %>
+    <% end %></div> -->
+
     <%= yield %>
+
+    <%# <%= render 'layouts/footer' %>
   </body>
 </html>

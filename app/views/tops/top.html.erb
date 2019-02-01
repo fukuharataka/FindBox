@@ -1,14 +1,16 @@
 <div class="full_screen_container top_box">
-    <div class="top_band clearfix">
-      <div class="logo_container">
-        <%= link_to image_tag("/images/logo_big.png"),root_path %>
-      </div>
-      <div class="band_text_container">
-        <% if current_user.nil? %>
-          <%= render 'guest_top_band' %>
-        <% else %>
-          <%= render 'user_top_band' %>
-        <% end %>
-      </div>
+  <div class="top_body">
+  <div class="top_band clearfix">
+    <div class="logo_container">
+      <%= link_to image_tag("/images/logo_big.png"),root_path %>
     </div>
+    <div class="band_text_container">
+      <% if current_user.nil? %>
+        <%= render 'guest_top_band' %>
+      <% else %>
+        <%= render 'user_top_band' %>
+      <% end %>
+    </div>
+  </div>
+  </div>
 </div>

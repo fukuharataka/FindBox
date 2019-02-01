@@ -1,14 +1,8 @@
 <div class="full_screen_container b">
-  <% if current_user.admin == false %>
-    <%= render 'layouts/user_header' %>
-  <% else %>
-    <%= render 'layouts/admin_header' %>
-  <% end %>
   <div class="edit_container b">
     <%= form_for(@live_house, url: update_detail_path(@live_house)) do |f| %>
       <%= f.trix_editor :detail, class: "edit_detail_area b",placeholder: '↑ボタンで文字にオプションをつけることができます'%>
       <%= f.submit "更新する", class: "btn b mt-10"%>
     <% end %>
   </div>
-  <%= render 'layouts/footer' %>
 </div>
