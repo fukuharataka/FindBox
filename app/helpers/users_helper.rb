@@ -26,7 +26,7 @@ module UsersHelper
       flash[:denger] = "ログインしてください"
       redirect_to sign_in_path
     else
-      user = User.find(current_user)
+      user = User.find(current_user.id)
       if user.admin == false
         flash[:danger] = "ページが存在しません"
         redirect_to root_url

@@ -27,6 +27,9 @@
       </div>
     </div>
   <% end %>
-  <p>作成されました</p>
+  <% if params[:ver_id] == "2" %>
+    <p>createアクションにて作成されました</p>
+  <% end %>
+  <p class="mt-25"><%= link_to "戻る", report_path(params[:report_id]) %></p>
 </div>
 <%= render 'layouts/footer' %>

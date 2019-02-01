@@ -1,0 +1,21 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      live_house: ライブハウス
+    attributes:
+      user:
+        name: 名前
+        email: メール
+        nickname: ニックネーム
+        home_house: ホームハウス
+        password: パスワード
+        password_confirmation: パスワード(確認)
+      live_house:
+        name: 名前
+        prefecture: 都道府県
+        address: その他住所
+        phone_number: 電話番号
+        hp_url: HPのURL
+        detail: 詳細
+        capacity: 収容人数

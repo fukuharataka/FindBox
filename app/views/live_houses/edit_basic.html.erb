@@ -4,12 +4,12 @@
   <% else %>
     <%= render 'layouts/admin_header' %>
   <% end %>
-  <div class="edit_container center b">
+  <div class="edit_container center">
     <div class="error_container_house">
       <%= render 'layouts/error_messages', instance: @live_house %>
     </div>
-    <div class="edit_box b imgInput ">
-      <div class="image_box b">
+    <div class="edit_box imgInput ">
+      <div class="image_box">
         <% if @photo.nil? %>
           <%= image_tag "no_image.png", size: '200x200', class: "imgView" %>
         <% else %>
@@ -17,9 +17,9 @@
         <% end %>
         <input type="file" name="file1">
       </div>
-      <div class="edit_aria b">
-        <div class="form-box clearfix center">
-          <label for='name'>ライブハウス編集</label>
+      <div class="edit_aria">
+        <div class="form_title_box clearfix center">
+          <label for='name'>基本情報</label>
         </div>
         <%= form_for(@live_house, url: update_basic_path(@live_house)) do |f| %>
           <%= f.hidden_field :image_id, id: "img_id" %>

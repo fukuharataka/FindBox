@@ -11,7 +11,7 @@
 
           <tr>
             <td><%= (@live_house_ver.current_page - 1)*15 + (i + 1) %></td>
-            <td><%= link_to User.find(version.whodunnit).name, report_ver_path(house_id: @live_house.id, ver_id: version.id) %></td>
+            <td><%= link_to User.find(version.whodunnit).name, report_ver_path(house_id: @live_house.id, ver_id: version.id, report_id: params[:id]) %></td>
             <td><%= version.created_at %></td>
           </tr>
 

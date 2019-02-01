@@ -1,11 +1,11 @@
 <div class="full_screen_container b">
   <%= render 'layouts/header' %>
-  <div class="sign_box b">
+  <div class="sign_box">
     <div class="error_container">
       <%= render 'layouts/error_messages', instance: @user %>
     </div>
     <div class="form-box clearfix">
-      <label for='name' class='form-title'>新規ユーザー登録</label>
+      <label for='name' class='form_title_box'>新規登録</label>
     </div>
     <%= form_for(@user, url: sign_up_path(@user)) do |f| %>
     <div class="form-box clearfix">
@@ -33,7 +33,7 @@
       <label for='name'>ホームグラウンド</label>
     </div>
     <div class="form-box clearfix">
-      <%= f.submit "新規登録", class: "btn"%>
+      <%= f.submit "新規登録", class: "b btn"%>
     </div>
     <% end %>
   </div>

@@ -1,7 +1,11 @@
 <% if current_user.nil? %>
   <%= render 'layouts/header' %>
 <% else %>
-  <%= render 'layouts/user_header' %>
+  <% if current_user.admin == false %>
+    <%= render 'layouts/user_header' %>
+  <% else %>
+    <%= render 'layouts/admin_header' %>
+  <% end %>
 <% end %>
 <div class="center">
   <div class="show_basic_box">
@@ -20,7 +24,8 @@
       <h2 class="">番号: <%= @live_house.phone_number %></h2>
       <h2 class="">URL  <%= @live_house.hp_url %></h2>
       <% unless current_user.nil? %>
-        <h2><%= link_to "編集", edit_basic_path(@live_house.id) %></h2>
+        <h2><%= link_to "基本情報編集", edit_basic_path(@live_house.id) %></h2>
+        <h2><%= link_to "詳細情報編集", edit_detail_path(@live_house.id) %></h2>
         <% report = Report.where(user_id: current_user.id).where(live_house_id: @live_house.id) %>
         <% unless report[0].nil?  %>
           <h2><%= link_to "通報中", report_destroy_path(report[0].id), method: :delete, data: { confirm: '通報を取り消しますか？'}%></h2>
