@@ -5,14 +5,14 @@
       <tr>
         <th class="report_caption">versions</th>
         <td>ユーザー</td>
-        <td>編集時期</td>
+        <td>編集日時</td>
       </tr>
       <% @live_house_ver.each_with_index do |version,i| %>
 
           <tr>
             <td><%= (@live_house_ver.current_page - 1)*15 + (i + 1) %></td>
             <td><%= link_to User.find(version.whodunnit).name, report_ver_path(house_id: @live_house.id, ver_id: version.id, report_id: params[:id]) %></td>
-            <td><%= version.created_at %></td>
+            <td><%= version.created_at.strftime("%Y年%m月%d日 %H時%M分")%></td>
           </tr>
 
       <% end %>
