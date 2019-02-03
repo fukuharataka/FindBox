@@ -1,6 +1,8 @@
 function removeAttachment(attachment){
   var file = attachment.file;
   var form = new FormData;
+
+  console.log('aaa');
   // var xhr = new XMLHttpRequest;
   // xhr.open("POST", "/photos.json", true);
   // xhr.setRequestHeader("X-CSRF-Token", Rails.csrfToken());
@@ -19,7 +21,6 @@ function removeAttachment(attachment){
 
 document.addEventListener("trix-attachment-remove", function(event){
   var attachment = event.attachment;
-
   if (attachment.file) {
     return removeAttachment(attachment);
   }
