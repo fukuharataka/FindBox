@@ -1,6 +1,7 @@
 function uploadAttachment(attachment){
   var file = attachment.file;
   var form = new FormData;
+  console.log('aaa');
   form.append("Contnt-Type", file.type);
   form.append("photo[image]", file);
   var xhr = new XMLHttpRequest;

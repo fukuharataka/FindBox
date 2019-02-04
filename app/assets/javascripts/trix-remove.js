@@ -1,7 +1,6 @@
 function removeAttachment(attachment){
   var file = attachment.file;
   var form = new FormData;
-
   console.log('aaa');
   // var xhr = new XMLHttpRequest;
   // xhr.open("POST", "/photos.json", true);
@@ -21,6 +20,7 @@ function removeAttachment(attachment){
 
 document.addEventListener("trix-attachment-remove", function(event){
   var attachment = event.attachment;
+  console.log(attachment.file);
   if (attachment.file) {
     return removeAttachment(attachment);
   }
